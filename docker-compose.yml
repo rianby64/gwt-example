@@ -1,0 +1,14 @@
+version: "3"
+services:
+  gwt-myapp:
+    image: localhost/gwt-myapp
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /dev/dri:/dev/dri
+    ports:
+      - "8888"
+      - "9876"
+    security_opt: "label=type:container_runtime_t"
+    tty: true
+    environment: 
+      - "DISPLAY"
