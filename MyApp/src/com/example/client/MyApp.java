@@ -16,6 +16,8 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.DecoratorPanel;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -55,6 +57,27 @@ public class MyApp implements EntryPoint {
     // Focus the cursor on the name field when the app loads
     nameField.setFocus(true);
     nameField.selectAll();
+
+    Label question = new Label("How do you like this course so far?");
+
+    Button loveIt = new Button("Love it");
+    Button okay = new Button("okay");
+    Button terrible = new Button("terribe");
+
+    HorizontalPanel responses = new HorizontalPanel();
+
+    responses.add(loveIt);
+    responses.add(okay);
+    responses.add(terrible);
+
+    VerticalPanel survey = new VerticalPanel();
+    survey.add(question);
+    survey.add(responses);
+
+    DecoratorPanel prettySurvey = new DecoratorPanel();
+    prettySurvey.add(survey);
+
+    RootPanel.get().add(prettySurvey);
 
     // Create the popup dialog box
     final DialogBox dialogBox = new DialogBox();
