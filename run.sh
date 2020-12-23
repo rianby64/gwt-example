@@ -1,6 +1,7 @@
 #! /bin/bash
 
-podman build -f Containerfile.simple -t gwt-myapp .
+podman build -f GWT-base.dockerfile -t gwt .
+podman build -f GWT-MyApp.dockerfile -t gwt-myapp .
 
 podman run --rm -it \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
